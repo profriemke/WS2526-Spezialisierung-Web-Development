@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes intro {
+        0% {
+                transform: rotate(0);
+                left:0px;
+            }
+        50%{
+                top: 200px;
+                left: 200px;
+        }
+
+        100% {
+                transform: rotate(560deg);
+                top: 500px;
+                left:0px;
+            }
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0px;
+            background-color: red;
+            margin: 100px;
+            animation: intro 5s steps(300) infinite alternate;
+        }
+
+        div:hover {
+            background-color: green;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>Hallo OMM!</div>
+</body>
+
+</html>

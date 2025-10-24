@@ -1,0 +1,13 @@
+$sizes: 100, 200, 300, 400;
+$colors: brown, red, cyan, green;
+@each $size in $sizes {
+    .box-#{$size} {
+        height: #{$size}px;
+        width: #{$size}px;
+    }
+}
+@each $color in $colors {
+    .#{$color} {
+        background-color: #{$color};
+    }
+}

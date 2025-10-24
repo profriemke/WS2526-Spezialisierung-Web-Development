@@ -1,0 +1,40 @@
+$color-primary: yellow;
+$sizes: 10, 20, 50, 100, 150, 200, 250;
+
+@mixin border {
+    border: 1px solid;
+    padding: 1em;
+}
+
+h1 {
+    background-color: $color-primary;
+}
+
+h2 {
+    background-color: $color-primary;
+}
+
+.unterbox {
+    @include border;
+
+    .box {
+        @include border;
+        background-color: magenta;
+    }
+
+    .box-special {
+        background-color: cyan;
+    }
+
+    &.box {
+        background-color: orange;
+    }
+
+}
+
+@each $size in $sizes {
+    .div-#{$size} {
+        height: #{$size}px;
+        width: #{$size}px;
+    }
+}
