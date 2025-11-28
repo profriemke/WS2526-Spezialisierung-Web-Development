@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .note {
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            margin: 5px;
+            overflow: hidden;
+            background-color: rgb(198, 198, 40);
+        }
+
+        .note-done {
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            margin: 5px;
+            overflow: hidden;
+            background-color: rgb(131, 131, 131);
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="text">
+    <button id="button">hinzufügen</button>
+    <div id="container"></div>
+    <script>
+        const text = document.getElementById('text')
+        const button = document.getElementById('button')
+        const container = document.getElementById('container')
+
+        button.addEventListener('click', () => {
+            const newDiv = document.createElement('div')
+            newDiv.innerText = text.value
+            newDiv.classList.add('note')
+            container.appendChild(newDiv)
+            text.value = ''
+        })
+
+        container.addEventListener('click', (e) => {
+            if(e.target.id =='container'){
+                return
+            }
+            if(e.target.classList.contains('note') ){
+                e.target.classList.add('note-done')
+                e.target.classList.remove('note')
+            }else{
+                 e.target.classList.remove('note-done')
+                e.target.classList.add('note')
+            }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="hallo"></div>
+    <script>
+        const myTimeout = setTimeout(() => {
+            document.getElementById("hallo").innerText = 'Hallo';
+        }, 5000);
+    </script>
+
+    <div id="zeit"></div>
+    <script>
+        const myInterval = setInterval(() => {
+            const date = new Date();
+            document.getElementById("zeit").innerText =
+                date.toLocaleTimeString();
+        }, 1000);
+    </script>
+
+</body>
+
+</html>

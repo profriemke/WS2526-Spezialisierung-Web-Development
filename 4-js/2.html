@@ -8,21 +8,25 @@
 </head>
 
 <body>
-
-    <button onclick="neuesElement()">neu</button>
-    <div id="box"></div>
     <script>
-        const box = document.getElementById('box')
-
-        function neuesElement() {
-            for (i = 0; i <= 10; i++) {
-                const neuesDiv = document.createElement('div')
-                neuesDiv.innerText = "ich bin neu hier"
-                neuesDiv.style.backgroundColor = 'red'
-                box.appendChild(neuesDiv)
-            }
-        }
+        window.addEventListener('load', () => {
+            console.log('Page loaded');
+            const box = document.getElementById('box')
+            const button = document.getElementById('neu_button')
+            button.addEventListener('mouseover', () => {
+                for (i = 0; i <= 10; i++) {
+                    const neuesDiv = document.createElement('div')
+                    neuesDiv.innerText = "ich bin neu hier"
+                    neuesDiv.style.backgroundColor = 'red'
+                    box.appendChild(neuesDiv)
+                }
+            })
+        })
     </script>
+    <button id="neu_button">neu</button>
+    <div id="box"></div>
+
+
 
 </body>
 
