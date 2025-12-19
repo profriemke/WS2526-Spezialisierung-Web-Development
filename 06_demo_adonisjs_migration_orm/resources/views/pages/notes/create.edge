@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neue Notiz</title>
+</head>
+
+<body>
+    <a href="/notes">&larr; Zurück zur Übersicht</a>
+
+    <h1>Neue Notiz für {{ category.name }}</h1>
+
+    @if(flashMessages.has('error'))
+    <div class="flash flash-error">
+        @each(message in flashMessages.get('error'))
+        <p>{{ message }}</p>
+        @endeach
+    </div>
+    @endif
+
+    @if(errors && errors.length)
+    <ul class="flash flash-errors">
+        @each(error in errors)
+        <li>{{ error.message }}</li>
+        @endeach
+    </ul>
+    @endif
+
+    <form method="POST" action="/categories/{{ category.id }}/notes">
+        {{ csrfField() }}
+        <div>
+            <label for="title">Titel</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div>
+            <label for="content">Inhalt</label>
+            <textarea id="content" name="content" rows="6" required></textarea>
+        </div>
+        <button type="submit">Speichern</button>
+    </form>
+</body>
+
+</html>

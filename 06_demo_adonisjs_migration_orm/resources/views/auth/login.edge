@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+
+    @if(flashMessages.has('success'))
+    <div class="flash flash-success">
+        @each(message in flashMessages.get('success'))
+        <p>{{ message }}</p>
+        @endeach
+    </div>
+    @endif
+
+    @if(flashMessages.has('error'))
+    <div class="flash flash-error">
+        @each(message in flashMessages.get('error'))
+        <p>{{ message }}</p>
+        @endeach
+    </div>
+    @endif
+
+    @if(flashMessages.has('errors'))
+    <ul class="flash flash-errors">
+        @each(message in flashMessages.get('errors'))
+        <li>{{ message }}</li>
+        @endeach
+    </ul>
+    @endif
+
+    <form method="POST" action="/login">
+        {{csrfField()}}
+        <input type="text" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+</body>
+
+</html>

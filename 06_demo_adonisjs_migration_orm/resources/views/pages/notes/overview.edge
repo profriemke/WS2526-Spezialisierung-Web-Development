@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    @if(auth.isAuthenticated)
+    <p> Hello {{ auth.user.email }} </p>
+    @end
+    <h1>Notes</h1>
+    @each(category in categories)
+    <h2>{{ category.name }}</h2>
+    <p><a href="/categories/{{ category.id }}/notes/create">Neue Notiz hinzufügen</a></p>
+    @each(note in category.notes)
+    <div>
+        <h3>{{ note.title }}</h3>
+        <p>{{ note.content }}</p>
+        <small>Last updated: {{ note.updatedAt?.toFormat('dd.MM.yyyy HH:mm') }}</small>
+    </div>
+    @endeach
+    @endeach
+
+</body>
+
+</html>
