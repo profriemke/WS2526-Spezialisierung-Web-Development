@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Hallo from '@/components/Hallo'
 
 export default function Home() {
   return (
@@ -7,6 +7,9 @@ export default function Home() {
       <p>
         Hallo
       </p>
+      <Hallo />
+      <Hallo />
+      <Hallo />
     </div>
 
   );
